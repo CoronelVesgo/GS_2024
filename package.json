@@ -1,0 +1,17 @@
+{
+  "name": "gs_hete",
+  "version": "1.0.0",
+  "description": "Lucas Makoto   | RM:95387\r   Caio Sprovieri | RM:93327",
+  "main": "./assets/JS/abastecimentoInfo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "sqlite3": "^5.1.7"
+  }
+}
