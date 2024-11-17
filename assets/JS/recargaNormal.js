@@ -1,8 +1,7 @@
-
 // Seleciona o contêiner onde os veículos serão exibidos
 const exibirVeiculos = document.getElementById("exibirVeiculos"); 
 
-const tempoPorPorcentagem = 2; // Segundos necessários para carregar 1%
+const tempoPorPorcentagem = 5; // Segundos necessários para carregar 1%
 
 //pega os dado da API
 async function fetchVeiculos() {
@@ -72,8 +71,8 @@ function inicializarVeiculos(veiculos) {
         return { progressBar, progressText, timeRemaining, veiculo };
     });
 
-    // Atualiza os status a cada 2 segundos
-    setInterval(() => updateVehicleCharge(vehicleElements), 2000);
+    // Atualiza os status a cada 5 segundos
+    setInterval(() => updateVehicleCharge(vehicleElements), 5000);
 }
 
 // Função para atualizar a carga dos veículos
@@ -91,5 +90,3 @@ function updateVehicleCharge(vehicleElements) {
 }
 
 fetchVeiculos();
-
-

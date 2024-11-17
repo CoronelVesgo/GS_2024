@@ -21,53 +21,84 @@ body {
     backdrop-filter: blur(10px);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.container2{
-    text-align: center;
-    padding: 40px 30px;
-    background: rgba(255, 255, 255, 0.678);
-    border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 h1 {
     font-size: 2rem;
-    font-weight: 700;
     margin-bottom: 20px;
+    color: #000000;
 }
-p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    font-weight: 400;
+/*Formata as opções do menu de Escolha de Recarga*/
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
-/* Formata os botões de acesso aos postos*/
-#postosRecarga {
+.option {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.option h1{
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #000000;
+}
+.option h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #4CAF50;
+}
+.option p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+}
+/*Formata a classe que contém os botões de opções da estação de recarga*/
+#postoRecarga {
     display: flex;
     gap: 15px;
     justify-content: center;
     margin: 20px 0;
 }
-.button {
+/*Formata as opções do menu de pagamento*/
+.payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.payment-option {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+}
+.payment-option:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.2);
+}
+/*Formata os botões da aplicação*/
+.button{
     text-decoration: none;
-    background-color: #4caf50;
+    display: inline-block;
+    margin-top: 10px;
+    background: #4CAF50;
     color: white;
     padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    text-align: center;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1rem;
+    border-radius: 50px;
+    transition: transform 0.2s;
 }
-.button:hover {
+.button:hover{
     background-color: #45a049;
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
-
 .button:active {
     background-color: #3e8e41;
-    transform: scale(1);
+    transform: scale(1.1);
 }
 /*Formata o display com a info dos veículos abastecendo */
 #exibirVeiculos {
