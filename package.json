@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Lucas Makoto   | RM:95387\r   Caio Sprovieri | RM:93327",
   "main": "./assets/JS/abastecimentoInfo.js",
+  
   "scripts": {
     "start": "node ./server/server.js"   
   },
