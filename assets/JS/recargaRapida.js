@@ -84,7 +84,7 @@ function updateVehicleCharge(vehicleElements) {
             progressText.textContent = `${veiculo.carga}%`;
             timeRemaining.textContent = calculateTimeRemaining(veiculo.carga);
         } else {
-            timeRemaining.textContent = "Carga completa!";
+            timeRemaining.textContent = "Carga completa!,Por favor retire a tomada!";
         }
     });
 }
