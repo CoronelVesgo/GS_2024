@@ -11,7 +11,7 @@ app.use(cors());
 
 
 //Conecta na database 
-const db = new sqlite3.Database("/server/veiculos.db",(err) => {
+const db = new sqlite3.Database("./server/veiculos.db",(err) => {
     if (err) {
         console.error("Erro ao conectar ao banco de dados:", err.message);
     } else {
