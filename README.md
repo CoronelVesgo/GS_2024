@@ -23,4 +23,4 @@ O código é formado por três partes:<br>
 
 
 # Observação importante:<br>
-Sempre que for abrir o código, utilizar o comando "npm start".
+Sempre que for abrir o código, utilizar o comando no terminal "npm start".
