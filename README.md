@@ -30,7 +30,8 @@ O código é formado em:<br>
 Quando for abrir o código pela primeira vez, por precaução utilizar estes códigos no terminal:<br><br>
 
 cd GS_Hete<br>
-npm install ()<br><br>
+npm install <br><br>
+
 Sempre que for abrir o código, utilizar estes comandos no terminal:<br><br>
 
 cd GS_Hete<br>
