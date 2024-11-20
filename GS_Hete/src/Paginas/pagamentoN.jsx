@@ -6,7 +6,7 @@ const PagamentoN = () => {
   const navigate = useNavigate();
 
   const irParaCarregamento = () => {
-    navigate('/publico/recargaNormal.html');
+    navigate('/escolhaRecarga/pagamentoN/recargaNormal');
   };
 
   return (

@@ -1,33 +1,24 @@
-// Seleciona o contêiner onde os veículos serão exibidos
-const exibirVeiculos = document.getElementById("exibirVeiculos"); 
+const veiculos = [
+    { id: 1, name: "Vovó Turbo", modelo: "Tesla", carga: 0 },
+];
 
 const tempoPorPorcentagem = 1; // Segundos necessários para carregar 1%
 
-//pega os dado da API
-async function fetchVeiculos() {
-    try {
-        const response = await fetch("http://localhost:3000/veiculos");
-        const veiculos = await response.json();
-        inicializarVeiculos(veiculos);
-    } catch (error) {
-        console.error("Erro ao buscar veículos:", error);
-    }
-}
+// Seleciona o contêiner onde os veículos serão exibidos
+const exibirVeiculos = document.getElementById("exibirVeiculos");
 
-// Função para criar a interface de um veículo
 function createVehicleElement(veiculo) {
-
-    //Nome do veículo
     const veiculoDiv = document.createElement("div");
     veiculoDiv.className = "veiculo";
 
     const name = document.createElement("div");
     name.textContent = veiculo.name;
-    //Modelo do veículo
+    name.style.fontWeight = "bold";
+
     const modelo = document.createElement("div");
     modelo.textContent = `Modelo: ${veiculo.modelo}`;
-    modelo.style.color = "black";
-    //Monitora o progesso do carregamento
+    modelo.style.color = "#555";
+
     const progressBarContainer = document.createElement("div");
     progressBarContainer.className = "progress-bar";
 
@@ -44,11 +35,11 @@ function createVehicleElement(veiculo) {
     timeRemaining.textContent = calculateTimeRemaining(veiculo.carga);
 
     progressBarContainer.appendChild(progressBar);
-    veiculoDiv.appendChild(name); // Adiciona o nome na interface
+    veiculoDiv.appendChild(name); //  Adiciona o nome na interface
     veiculoDiv.appendChild(modelo); // Adiciona o modelo na interface
-    veiculoDiv.appendChild(progressBarContainer); //Barra de progresso
-    veiculoDiv.appendChild(progressText); // Texto da barra de carregamento
-    veiculoDiv.appendChild(timeRemaining); // Texto de tempo que falta para a carga completa
+    veiculoDiv.appendChild(progressBarContainer); // Adiciona a barra de progresso na interface
+    veiculoDiv.appendChild(progressText); // Adiciona o texto de progresso na interface
+    veiculoDiv.appendChild(timeRemaining); // Adiciona o tempo restante na interface
 
     return { element: veiculoDiv, progressBar, progressText, timeRemaining };
 }
@@ -63,30 +54,26 @@ function calculateTimeRemaining(cargaAtual) {
     return `Tempo restante: ${minutos}m ${segundos}s`;
 }
 
-// Função para inicializar a interface
-function inicializarVeiculos(veiculos) {
-    const vehicleElements = veiculos.map((veiculo) => {
-        const { element, progressBar, progressText, timeRemaining } = createVehicleElement(veiculo);
-        exibirVeiculos.appendChild(element);
-        return { progressBar, progressText, timeRemaining, veiculo };
-    });
-
-    // Atualiza os status a cada 1 segundo1
-    setInterval(() => updateVehicleCharge(vehicleElements), 1000);
-}
+// Inicializa a interface com os veículos
+const vehicleElements = veiculos.map(veiculo => {
+    const { element, progressBar, progressText, timeRemaining } = createVehicleElement(veiculo);
+    exibirVeiculos.appendChild(element);
+    return { progressBar, progressText, timeRemaining, veiculo };
+});
 
 // Função para atualizar a carga dos veículos
-function updateVehicleCharge(vehicleElements) {
+function updateVehicleCharge() {
     vehicleElements.forEach(({ progressBar, progressText, timeRemaining, veiculo }) => {
         if (veiculo.carga < 100) {
             veiculo.carga += 1; // Simula o carregamento
-            progressBar.style.width = `${veiculo.carga}%`;
-            progressText.textContent = `${veiculo.carga}%`;
-            timeRemaining.textContent = calculateTimeRemaining(veiculo.carga);
+            progressBar.style.width = `${veiculo.carga}%`; // Atualiza a barra de progresso
+            progressText.textContent = `${veiculo.carga}%`; // Atualiza o texto de porcentagem
+            timeRemaining.textContent = calculateTimeRemaining(veiculo.carga); // Atualiza o tempo restante
         } else {
-            timeRemaining.textContent = "Carga completa!,Por favor retire a tomada!";
+            timeRemaining.textContent = "Carga completa!";
         }
     });
 }
 
-fetchVeiculos();
+// Atualiza os status a cada 1 segundo
+setInterval(updateVehicleCharge, 1000);

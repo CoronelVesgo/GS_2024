@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "/src/Css/Style.css";
 
-function RecargaRapida() {
+function RecargaNormal() {
   // Carrega o script externo dinamicamente
   useEffect(() => {
     const script = document.createElement("script");
@@ -25,4 +25,4 @@ function RecargaRapida() {
   );
 }
 
-export default RecargaRapida;
+export default RecargaNormal;
